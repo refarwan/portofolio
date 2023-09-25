@@ -1,13 +1,11 @@
-FROM node:18-alpine
+FROM node:lts
 
 WORKDIR /app/
 
 COPY package*.json ./
 RUN npm i
 
-ARG DATABASE_URL
-ENV DATABASE_URL=$DATABASE_URL
-
 COPY . .
+RUN npm run build
 
 CMD [ "npm", "start", "--", "-p", "3000" ]

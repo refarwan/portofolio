@@ -3,8 +3,8 @@ import Link from "next/link"
 
 import Menu from "@/components/menu"
 
-import { PrismaClient } from "@prisma/client"
 import {
+	FaAt,
 	FaLinkedin,
 	FaWhatsapp,
 	FaInstagram,
@@ -14,27 +14,46 @@ import {
 	FaTiktok,
 } from "react-icons/fa"
 
-const prisma = new PrismaClient()
-
-const getSkills = async () => {
-	const res = await prisma.skill.findMany()
-	return res
-}
-
-const getWorkExperiences = async () => {
-	const res = await prisma.workExperience.findMany()
-	return res
-}
-
-const getProjects = async () => {
-	const res = await prisma.project.findMany()
-	return res
-}
-
 export default async function Home() {
-	const skills = await getSkills()
-	const workExperiences = await getWorkExperiences()
-	const projects = await getProjects()
+	const skills = [
+		"HTML",
+		"CSS",
+		"JavaScript",
+		"TypeScript",
+		"Node.Js",
+		"Express.Js",
+		"React.Js",
+		"Next.Js",
+		"Tailwindcss",
+		"Git",
+		"Github",
+		"Docker",
+		"VPS",
+		"Ubuntu Server",
+		"Nginx",
+		"Figma",
+	]
+	const projects = [
+		{
+			image: "screenshot-jualkamera.jpg",
+			title: "Website Jualkamera.com",
+			description:
+				"Website katalog untuk toko Kamea Mbantul dengan fitur POS (Point of Sale) sehingga stock selalu update karena semua transaksi tercatat di halaman kasir",
+			link: "https://www.jualkamera.com",
+		},
+	]
+	const workExperiences = [
+		{
+			position: "Web Programmer",
+			company: "PT Fresh Galang Mandiri",
+			date: "Agustus 2022 - Maret 2023",
+		},
+		{
+			position: "IT Support & Programmer",
+			company: "Toko Kamera Mbantul",
+			date: "Juni 2017 - Juli 2022",
+		},
+	]
 
 	return (
 		<>
@@ -90,9 +109,9 @@ export default async function Home() {
 						<h2 className="text-teal-600 font-semibold text-center">
 							Pengalaman kerja
 						</h2>
-						{workExperiences.map((item) => (
+						{workExperiences.map((item, index) => (
 							<div
-								key={item.id}
+								key={index}
 								className="flex flex-col gap-[10px] items-center"
 							>
 								<h3 className="font-semibold">{item.position}</h3>
@@ -111,7 +130,7 @@ export default async function Home() {
 									className="bg-teal-600 text-white h-[40px] px-[24px] rounded-[6px] leading-[40px]"
 									key={index}
 								>
-									{item.name}
+									{item}
 								</div>
 							))}
 						</div>
@@ -126,9 +145,9 @@ export default async function Home() {
 					Projects
 				</h2>
 				<div className="flex flex-col gap-[80px] sm:gap-[30px] xl:gap-[50px]">
-					{projects.map((item) => (
+					{projects.map((item, index) => (
 						<div
-							key={item.id}
+							key={index}
 							className="flex flex-col gap-[30px] sm:flex-row xl:gap-[50px]"
 						>
 							<Image
@@ -170,6 +189,9 @@ export default async function Home() {
 						<div className="flex flex-col gap-[10px]">
 							<h2 className="font-bold">Media Sosial</h2>
 							<div className="flex gap-[8px]">
+								<a href="mailto:refarwan@gmail.com" target="_blank">
+									<FaAt size={25} />
+								</a>
 								<a href="https://wa.me/62881082204658" target="_blank">
 									<FaWhatsapp size={25} />
 								</a>
