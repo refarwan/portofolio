@@ -32,6 +32,9 @@ export default async function Home() {
 		"Ubuntu Server",
 		"Nginx",
 		"Figma",
+		"Mysql",
+		"PostgreSql",
+		"Prisma",
 	]
 	const projects = [
 		{
