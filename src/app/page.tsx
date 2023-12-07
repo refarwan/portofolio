@@ -195,7 +195,7 @@ export default async function Home() {
 								<a href="mailto:refarwan@gmail.com" target="_blank">
 									<FaAt size={25} />
 								</a>
-								<a href="https://wa.me/62881082204658" target="_blank">
+								<a href="https://wa.me/62877774422425" target="_blank">
 									<FaWhatsapp size={25} />
 								</a>
 								<a href="https://www.instagram.com/refarwan" target="_blank">
